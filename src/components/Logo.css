@@ -1,0 +1,10 @@
+.logo {
+  position: fixed;
+  left: 10px;
+  top: 10px;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color:black;
+  z-index: 20;
+  
+}

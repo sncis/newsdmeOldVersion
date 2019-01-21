@@ -8,7 +8,6 @@ import './App.css';
 const App = () => (
 <BrowserRouter>
   <div>
-    <Header />
     <Switch>
       <Route exact path="/" component={ Home }/>
     </Switch>
