@@ -4,9 +4,6 @@ import Logo from './Logo';
 import Headline from './Headline';
 
 class Header extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return(
       <div className="header">

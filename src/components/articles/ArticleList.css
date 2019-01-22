@@ -1,0 +1,13 @@
+.noArticles {
+  width: 35%;
+  margin: 100px auto;
+  text-align: center;
+  line-height: 1.9;
+  font-size: 1.3rem
+  
+}
+
+.loading {
+  width: 50%;
+  margin: auto;
+}
