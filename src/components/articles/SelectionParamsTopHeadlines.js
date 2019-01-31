@@ -13,7 +13,7 @@ const mapDispatchToProps = dispatch => {
     setCountries: (countries) => dispatch(setCountries(countries)),
     setCategories: (categories) => dispatch(setCategories(categories)),
     clearStore: () => dispatch(clearStore()),
-    fetchArticles: (countries, categories) => dispatch(fetchArticles(countries, categories))
+    fetchArticles: () => dispatch(fetchArticles()),
   };
 };
 
@@ -21,8 +21,6 @@ const mapStateToProps = (state) => {
   return {
     countries: state.countries,
     categories: state.categories,
-    articles: state.articles,
-    isLoading: state.isLoading,
   }
 }
 
@@ -58,7 +56,7 @@ class SelectionParametersHeadlines extends React.Component {
     this.props.setCountries(this.selectedCountries);
 
     this.props.fetchArticles();
-
+    
   };
 
 

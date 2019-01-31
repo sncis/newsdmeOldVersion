@@ -15,14 +15,15 @@ const mapStateToProps = (state) => {
   };
 }
 
-const ListArticle = ({ articles, errorMessage, isLoading }) => (
+const ListArticle = ({ articles, errorMessage, isLoading, paramsMissing }) => (
 
     <div className="article-list">
       { articles.length > 0 && articles.map(element=> (
         <Article articles={element} key={uuidv1()}/>        
       ))}
-      { articles.length === 0 && <p className="noArticles">{ errorMessage }</p> }
-      { isLoading && <p className="loading">Loading....! we are looing for articles</p>}
+      { paramsMissing && <p className="paramsMissing">{ errorMessage } </p>}
+      { articles.length === 0 && !paramsMissing && !isLoading && <p className="noArticles">{ errorMessage }</p> }
+      { isLoading && !paramsMissing && <p className="loading">Loading....! we are looing for articles</p>}
     </div>
     
    

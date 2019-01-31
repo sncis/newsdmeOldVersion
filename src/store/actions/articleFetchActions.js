@@ -7,7 +7,9 @@ import { ARTICLES_LOADING,
   SET_COUNTRIES, 
   CLEAR_STORE, 
   NO_ARTICLES, 
-  REQUEST_PARAMS_MISSING} from "../constants/action-types";
+  REQUEST_PARAMS_MISSING,
+} from "../constants/action-types";
+import store from '../store/store';
 
   export const clearStore = () => ({
     type: CLEAR_STORE,
@@ -34,14 +36,14 @@ import { ARTICLES_LOADING,
     payload: articles
   })
   
-  export const fetchArticleError = () => ({
+  export const fetchArticleError = (errorMessage) => ({
     type: FETCH_ARTICLE_ERROR,
-    payload: "uuppps something went wrong"
+    errorMessage: errorMessage
   })
   
-  export const noArticlesFound = () => ({
+  export const noArticlesFound = (errorMessage) => ({
     type: NO_ARTICLES,
-    errorMessage: "No articles found for this keyword(s)! Please try again"
+    errorMessage: errorMessage
   })
   
   export const fetchArticleParamsMissingError = (message) => ({
@@ -49,14 +51,14 @@ import { ARTICLES_LOADING,
     errorMessage: message,
     paramsMissing: true
   })
-  
-  
+
   export const fetchArticles = () => {
     return(dispatch, getState) => {
-      const countries = getState().countries.size > 0 ? getState().countries : [''];
-      const categories = getState().categories.size > 0 ? getState().categories : [''];
+      const countries = store.getState().countries.size > 0 ? getState().countries : [''];
+      const categories = store.getState().categories.size > 0 ? getState().categories : [''];
       
       dispatch(articlesIsLoading(true));
+      
       for(const country of countries)
         for(const cat of categories)
           axios.get(`https://newsapi.org/v2/top-headlines?country=${country}&category=${cat}&apiKey=${API_KEY}`)
@@ -65,15 +67,18 @@ import { ARTICLES_LOADING,
           dispatch(receivedArticlesSuccessful(data.data.articles))
         })
         .catch(error => {
-          if(error.response){
+          if(error.response.status === 400){
             console.log(error.response.data);
             console.log(error.response.status);
             console.log(error.response.header);
-            dispatch(fetchArticleParamsMissingError("Ups! you forgot to tell us what you are interested in! Please selest at least one country OR a category"))
+            dispatch(fetchArticleParamsMissingError("Ups! you forgot to tell us what you are interested in! Please selest at least one country OR a category"));
           }else if(error.request){
             console.log(error.request);
+            dispatch(fetchArticleError("uuppps something went wrong"));
+          }else{
+          dispatch(fetchArticleError("uuppps something went wrong"));
+
           }
-          dispatch(fetchArticleError());
         })
     }
   }
@@ -86,7 +91,7 @@ import { ARTICLES_LOADING,
       .then(data => {
         if(!data.data.articles.length){
           dispatch(articlesIsLoading(false));
-          dispatch(noArticlesFound());
+          dispatch(noArticlesFound("No articles found for this keyword(s)! Please try again"));
         }else{
           dispatch(articlesIsLoading(false));
           dispatch(receivedArticlesSuccessful(data.data.articles))
@@ -99,10 +104,10 @@ import { ARTICLES_LOADING,
           dispatch(fetchArticleParamsMissingError("please enter a least one Keyword"));
   
         }else if(error.request){
-          dispatch(fetchArticleError());
+          dispatch(fetchArticleError("uuppps something went wrong"));
         }else{
           console.log("ERROR: " + error.message);
-          dispatch(fetchArticleError());
+          dispatch(fetchArticleError("uuppps something went wrong"));
         }
       })
      } 
