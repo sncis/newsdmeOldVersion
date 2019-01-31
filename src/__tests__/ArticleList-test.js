@@ -4,7 +4,6 @@ import { Provider } from "react-redux";
 import configureStore from 'redux-mock-store';
 import Article from '../components/articles/Article';
 
-
 describe("ArticleList", () => {
   let store;
   beforeEach(()=>{
