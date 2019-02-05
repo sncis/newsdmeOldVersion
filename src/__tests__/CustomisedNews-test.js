@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider } from "react-redux";
 import configureMockStore from 'redux-mock-store';
-import { CustomisedNews } from '../components/articles/CustomisedNewsPage';
+import { CustomisedNews } from '../components/articles/CustomisedNewsInput';
 import thunk from 'redux-thunk';
 
 const middleware = [thunk];

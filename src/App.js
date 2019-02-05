@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import store from './store/store/store';
 import Home from './components/Home';
 import TopHeadlinesPage from './components/articles/TopHeadlinesPage';
+import CustomisedNewsPage from './components/articles/CustomisedNewsPage';
 import './App.css';
 
 const App = () => (
@@ -13,6 +14,7 @@ const App = () => (
       <Switch>
         <Route exact path="/" component={ Home }/>
         <Route path="/todays-top-headlines" component={ TopHeadlinesPage } />
+        <Route path="/customised-news" component={CustomisedNewsPage} />
       </Switch>
     </div>
   </BrowserRouter>  
