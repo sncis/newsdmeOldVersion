@@ -23,7 +23,7 @@ const ListArticle = ({ articles, errorMessage, isLoading, paramsMissing }) => (
       ))}
       { paramsMissing && <p className="paramsMissing">{ errorMessage } </p>}
       { articles.length === 0 && !paramsMissing && !isLoading && <p className="noArticles">{ errorMessage }</p> }
-      { isLoading && !paramsMissing && <p className="loading">Loading....! we are looing for articles</p>}
+      { isLoading && !paramsMissing && <p className="loading">Loading....! we are looking for articles</p>}
     </div>
     
    

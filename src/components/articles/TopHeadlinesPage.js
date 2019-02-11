@@ -6,7 +6,7 @@ import ArticleList from './ArticleList';
 const TopHeadnlinesPage = () => (
   <div>
     <Header headerLine="Todays Top Headlines" />
-    <SelectionParamsTopHeadlinesForm />
+      <SelectionParamsTopHeadlinesForm />
     <ArticleList />
   </div>
 )

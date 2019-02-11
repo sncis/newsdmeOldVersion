@@ -119,7 +119,6 @@ describe('store', () => {
   });
 
   // it("should dispatch fetchArticles actions", () => {
-
   //   const article = {
   //     "article": 
   //     {

@@ -24,7 +24,7 @@ const mapStateToProps = (state) => {
   }
 }
 
-class SelectionParametersHeadlines extends React.Component {
+export class SelectionParametersHeadlines extends React.Component {
   componentWillMount = () => {
     this.selectedCountries = new Set();
     this.selectedCategories = new Set();

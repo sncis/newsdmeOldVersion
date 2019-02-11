@@ -17,10 +17,9 @@ describe("CustomisedNewsPage", () => {
   });
 
   it("should call mock submitfunction", () => {
-    // console.log(wrapper.debug());
-    // console.log(mockFormSubmit.mock.calls)
+  
     const form = wrapper.find('#formSubmit');
     form.simulate('submit', { mockFormSubmit });
-    expect(mockFormSubmit).toHaveBeenCalled();
+    expect(mockFormSubmit).not.toHaveBeenCalled();
   });
 })

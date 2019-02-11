@@ -71,7 +71,7 @@ import store from '../store/store';
             console.log(error.response.data);
             console.log(error.response.status);
             console.log(error.response.header);
-            dispatch(fetchArticleParamsMissingError("Ups! you forgot to tell us what you are interested in! Please selest at least one country OR a category"));
+            dispatch(fetchArticleParamsMissingError("Ups! you forgot to tell us what you are interested in! Please select at least one country OR a category"));
           }else if(error.request){
             console.log(error.request);
             dispatch(fetchArticleError("uuppps something went wrong"));
