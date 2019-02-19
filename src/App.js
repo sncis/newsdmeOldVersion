@@ -6,6 +6,7 @@ import Home from './components/Home';
 import TopHeadlinesPage from './components/articles/TopHeadlinesPage';
 import CustomisedNewsPage from './components/articles/CustomisedNewsPage';
 import './App.css';
+import appConfig from './base';
 
 const App = () => (
 <Provider store={store}>
