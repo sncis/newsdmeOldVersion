@@ -5,10 +5,10 @@ const SelectionThumbnail = (props) => {
   return(
     <div className="topicSelectionThumbnail-container" >
       <div className={ `${props.name}-thumbnail`}></div>
-      <div className="text-for-thumbnail">
-        <h1>{props.headline}</h1>
-        <p>{props.description}</p>
-      </div>
+        <div className="text-for-thumbnail">
+          <h2>{props.headline}</h2>
+          <p>{props.description}</p>
+        </div>
     </div>
   )
 }

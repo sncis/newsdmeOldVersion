@@ -1,14 +1,71 @@
-.thumbnailSelection {
+ .thumbnailSelection {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   align-items: center;
 }
 
+.headline-item, .costumised-item {
+  margin: 50px 50px;
+}
+
+.todays-headlines-thumbnail, .customised-news-thumbnail {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(1px);
+  height:600px;
+  width: 500px;
+  opacity: 0.6;
+  box-shadow: 4px 4px 10px lightgrey;
+}
+
+@media only screen  and (max-device-width: 500px) {
+  .todays-headlines-thumbnail, .customised-news-thumbnail {
+    height:400px;
+    width: 300px;
+  }
+}
+.topicSelectionThumbnail-container {
+  position: relative;
+  color: black;
+  text-align: center;
+  -webkit-transition: all 0.8s;
+  -moz-transition:all 0.8s;
+  -o-transition:all 0.8s;
+  transition: all 0.8s;
+}
+
+.topicSelectionThumbnail-container:hover{
+  transform: scale(1.05);
+}
+.todays-headlines-thumbnail {
+  background-image: url("https://source.unsplash.com/600x400/?politics");
+}
+
+.customised-news-thumbnail {
+  background-image: url("https://source.unsplash.com/600x400/?news"); 
+} 
+.text-for-thumbnail {
+  position: absolute;
+  width: 70%;
+  top: 30%;
+  left: 85px;
+  color: black;
+} 
+
+
+/*
+
 .topicSelectionThumbnail-container {
   position: relative;
   text-align: center;
   transition: all 0.8s;
+  flex: auto;
+  flex-basis: 500px;
+  flex-shrink: 1;
+  flex-grow: 2;
+
 
 }
 .topicSelectionThumbnail-container:hover{
@@ -21,9 +78,9 @@
 
 .customised-news-thumbnail {
   background-image: url("https://source.unsplash.com/600x400/?news"); 
-}
+} */
 
-.customised-news-thumbnail, .todays-headlines-thumbnail {
+/* .customised-news-thumbnail, .todays-headlines-thumbnail {
   margin: 50px 50px;
   filter: blur(1px);
   background-position: center;
@@ -36,6 +93,16 @@
   text-decoration: none;
   opacity: 0.6;
   box-shadow: 4px 4px 10px lightgrey;
+} */
+/* 
+.customised-news-thumbnail, .todays-headlines-thumbnail  {
+  margin: 50px 50px;
+  filter:blur(1px);
+  background-position:center;
+  background-repeat: no-repeat;
+  flex: 1 1 auto;
+  
+
 }
 
 .text-for-thumbnail {
@@ -44,5 +111,5 @@
   top: 30%;
   left: 85px;
   color: black;
-}
+} */
 
