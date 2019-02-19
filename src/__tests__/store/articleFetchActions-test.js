@@ -1,10 +1,11 @@
 import configureMockStore from 'redux-mock-store';
-import * as actions  from '../../store/actions/articleFetchActions';
-import { SET_CATEGORIES, SET_COUNTRIES, ARTICLES_LOADING, RECEIVED_ARTICLES, FETCH_ARTICLE_ERROR, NO_ARTICLES, REQUEST_PARAMS_MISSING } from '../../store/constants/action-types';
 import thunk from 'redux-thunk';
 import axios from 'axios';
+// import moxios from 'moxios';
+import * as actions  from '../../store/actions/articleFetchActions';
+import { SET_CATEGORIES, SET_COUNTRIES, ARTICLES_LOADING, RECEIVED_ARTICLES, FETCH_ARTICLE_ERROR, NO_ARTICLES, REQUEST_PARAMS_MISSING } from '../../store/constants/action-types';
 
-jest.mock('axios');
+
 
 const middleware = [thunk]
 const mockStore = configureMockStore(middleware);
@@ -113,7 +114,6 @@ describe('store', () => {
         'paramsMissing': true
       }
     ]
-
     store.dispatch(actions.fetchArticleParamsMissingError(errorMessage));
     expect(store.getActions()).toEqual(expectedAction);
   });
@@ -132,18 +132,48 @@ describe('store', () => {
   //     },
   //   };
 
-  //   axios.get.mockImplementation( () =>
-  //    Promise.resolve({ data: { article } })
-  //   );
+  //   // axios.get.mockImplementation( () =>
+  //   //  Promise.resolve({ data: { article } })
+  //   // );
 
   //   const expectedActions = [
   //     { type: ARTICLES_LOADING, payload: false },
   //     { type: RECEIVED_ARTICLES, payload: article },
   //   ];
-  //   const newStore = mockStore({ data: [] });
-  //   console.log(newStore);
-  //   newStore.dispatch(actions.fetchArticles()).then( ()=> {
+  //   const newStore = mockStore();
+  //   newStore.dispatch(actions.fetchArticles()).then(() => {
   //     expect(store.getActions().toEqual(expectedActions))
   //   });
+  // })
+  // it("should dispatch fetchArticle action", () => {
+  //   const article = {
+  //     "article": 
+  //     {
+  //     "author": "Aayush Jindal",
+  //     "title": "Bitcoin Price Watch: BTC Bears Eyeing Test of $3,000",
+  //     "description": "Bitcoin price extended its decline",
+  //     "url": "https://www.newsbtc.com/2019/01/29/",
+  //     "urlToImage": "https://www.newsbtc.com/wp-content",
+  //     "publishedAt": "2019-01-29T06:45:44Z",
+  //     "content": "Bitcoin price extended $3,440"
+  //     },
+  //   };
+
+  //   moxios.wait(() => {
+  //     const request = moxios.requests.mostRecent();
+  //     request.respondWith({
+  //       status: 200,
+  //       response: article,
+  //     })
+  //   })
+  //   const expectedActions = [
+  //     { type: ARTICLES_LOADING, payload: false },
+  //     { type: RECEIVED_ARTICLES, payload: article },
+  //   ];
+  //   const newStore = mockStore()
+
+  //   return newStore.dispatch(actions.fetchArticles()).then(() => {
+  //     expect(store.getActions()).toEqual(expectedActions);
+  //   })
   // })
 })
