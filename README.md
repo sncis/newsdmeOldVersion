@@ -1,3 +1,7 @@
+
+## newsdMe
+based on your interessed newsdeMe provides you with daily hot topic news from different sources. You can select differenc counries and topics as well asmake aplain text search. 
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
