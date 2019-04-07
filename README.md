@@ -1,6 +1,6 @@
 
 ## newsdMe
-based on your interessed newsdeMe provides you with daily hot topic news from different sources. You can select differenc counries and topics as well asmake aplain text search. 
+based on your interessed newsdMe provides you with daily hot topic news from different sources. You can select differenc counries and topics as well as make a plain text search. 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
